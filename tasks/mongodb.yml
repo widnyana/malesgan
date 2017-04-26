@@ -1,0 +1,14 @@
+- name: add repo for mongodb
+  template:
+    src: mongodb-repo.j2
+    dest: /etc/yum.repos.d/mongodb-org-3.4.repo
+
+- name: install mongodb
+  yum:
+    name: mongodb-org
+    state: present
+
+- name: configure mongodb
+  template:
+    src: mongodb-conf.j2
+    dest: /etc/mongod.conf

@@ -1,0 +1,8 @@
+---
+- name: start gvm 1.4.3
+  become: no
+  raw: source ~/.bashrc && gvm use 1.4.3 --default
+
+- name: start gvm
+  become: no
+  raw: source ~/.bashrc && gvm use {{ go.version }} --default

@@ -1,0 +1,24 @@
+---
+dependencies:
+  - geerlingguy.repo-epel
+  - geerlingguy.redis
+
+galaxy_info:
+  author: widnyana
+  description: Devtoolkit for Centos
+  company: "Sapiterbang HQ"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.0
+  platforms:
+    - name: EL
+      versions:
+      - 6
+      - 7
+    - name: Fedora
+      versions:
+      - all
+  galaxy_tags:
+    - database
+    - development
+    - redhat
+    - golang

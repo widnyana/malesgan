@@ -1,0 +1,7 @@
+---
+go:
+  version: 1.7.3
+  gvm_url: "https://raw.github.com/moovweb/gvm/master/binscripts/gvm-installer"
+
+mongodb:
+  dbpath: /var/lib/mongo

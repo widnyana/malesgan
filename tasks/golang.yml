@@ -1,0 +1,30 @@
+- stat:
+    path: "{{ ansible_env.HOME }}/.gvm/bin/gvm"
+  register: gvm_bin
+
+- name: Install Golang gvm  
+  become: false
+  shell: bash < <(curl -s -S -L {{ go.gvm_url }})
+      executable="/bin/bash"
+  when: gvm_bin.stat.exists == False
+
+- name: Add the gvm to bashrc
+  become: false
+  lineinfile:
+    line: '[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"'
+    path: "{{ ansible_env.HOME }}/.bashrc"
+
+
+- name: Install Golang version 1.4.3
+  become: false
+  shell: gvm install go1.4.3 executable="/bin/bash"
+  notify: start gvm 1.4.3
+
+- name: set go 1.4.3 as default, so we can install go
+  become: false
+  shell: source ~/.bashrc &&gvm use go1.4.3 --default executable="/bin/bash"
+
+- name: Install Golang version "{{ go.version }}"
+  become: false
+  shell: gvm install go"{{ go.version }}" executable="/bin/bash"
+  notify: start gvm

@@ -1,0 +1,6 @@
+logpath=/var/log/mongo/mongod.log
+logappend=true
+fork = true
+port = 27017
+dbpath = {{ mongodb.dbpath }}
+pidfilepath = /var/run/mongodb/mongod.pid

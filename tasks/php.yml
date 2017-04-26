@@ -1,0 +1,21 @@
+- name: install webservice
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - "php56u"
+    - "php56u-cli"
+    - "php56u-common"
+    - "php56u-fpm"
+    - "php56u-fpm-nginx"
+    - "php56u-imap"
+    - "php56u-mbstring"
+    - "php56u-mcrypt"
+    - "php56u-mysqlnd"
+    - "php56u-gd"
+
+- name: Download Composer Binary
+  get_url: |
+    url="https://getcomposer.org/composer.phar"
+    dest="/usr/local/bin/composer"
+    mode=0755

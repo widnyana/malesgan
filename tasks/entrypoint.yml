@@ -1,0 +1,6 @@
+---
+- include: repo.yml
+- include: devpkg.yml
+- include: mongodb.yml
+- include: php.yml
+- include: golang.yml
